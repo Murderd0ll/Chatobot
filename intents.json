@@ -1,0 +1,5 @@
+{"intents":[
+    "tag": "saludo",
+    "patrones": ["hola","como estas", "que tal", "buenas", "buenas tardes", "buenos dias", "que onda"],
+    "respuestas":["Hola!", "Buenas tardes!", "Hola!, ¿Como estas?", "Hola!, Qué tal?"]
+]}
