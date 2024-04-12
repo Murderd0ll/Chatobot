@@ -53,7 +53,7 @@ training = np.array(training)
 print(training)
 
 train_x = list(training[:,0])
-train_y = list(train[:,1])
+train_y = list(training[:,1])
 
 model = Sequential()
 model.add(Dense(128, input_shape = (len(train_x[0]),), Activation='relu'))
