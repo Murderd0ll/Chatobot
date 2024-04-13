@@ -38,22 +38,22 @@ pickle.dump(words, open('words.pkl', 'wb'))
 pickle.dump(classes), open('classes.pkl', 'wb')
 
 training = []
-outoput_empty = [0]*len(classes)
+output_empty = [0]*len(classes)
 for document in documents:
     bag = []
-    word_pattenrs = document[0]
-    word_pattenrs = [lemmatizer.lemmatize(word.lower()) for word in word_pattenrs]
+    word_patterns = document[0]
+    word_patterns = [lemmatizer.lemmatize(word.lower()) for word in word_patterns]
     for word in words:
-        bag.append(1) if word in word_pattenrs else bag.append(0)
-    ouput_row = list(outoput_empty)
-    ouput_row[classes.index(document[1])] = 1
-    training.append([bag, ouput_row])
+        bag.append(1) if word in word_patterns else bag.append(0)
+    output_row = list(output_empty)
+    output_row[classes.index(document[1])] = 1
+    training.append([bag, output_row])
 random.shuffle(training)
 training = np.array(training)
 print(training)
 
 train_x = list(training[:,0])
-train_y = list(train[:,1])
+train_y = list(training[:,1])
 
 model = Sequential()
 model.add(Dense(128, input_shape = (len(train_x[0]),), Activation='relu'))
@@ -64,5 +64,5 @@ model.add(Dense(len(train_y[0]), Activation = 'softmax'))
 
 sgd = sgd_experimental.SGD(learning_rate=0.001, decay=1e-6, momentum=0.9, nesterov=True)
 model.compiler(loss='categorical_crossentropy', opimizer = sgd, metrics = ['accuracy'])
-train_process = model.fit(np.array(train_x), np.array(train_y), epochs=100, batch_size=5, verbos=1)
+train_process = model.fit(np.array(train_x), np.array(train_y), epochs=100, batch_size=5, verbose=1)
 model.save("chatbot_model.h5", train_process)
