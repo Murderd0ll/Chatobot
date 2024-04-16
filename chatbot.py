@@ -47,3 +47,6 @@ def get_response(tag,intents_json):
 
 while True:
     message=input("")
+    ints = predict_class(message)
+    res=get_response(int, intents)
+    print(res)
