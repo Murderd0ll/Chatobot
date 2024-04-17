@@ -4,11 +4,11 @@ import pickle
 import numpy as np
 
 import nltk
-from nltk.stem import WordNetLemartizer
+from nltk.stem import WordNetLemmatizer
 
 from keras.models import load_model
 
-lemmatizer = WordNetLemartizer()
+lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('intents.json').read())
 
 word = pickle.load(open('word.pkl', 'rb'))

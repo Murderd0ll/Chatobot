@@ -4,13 +4,13 @@ import pickle
 import numpy as np
 
 import nltk
-from nltk.stem import WordNetLemartizer
+from nltk.stem import WordNetLemmatizer
 
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import sgd_experimental
 
-lemmatizer = WordNetLemartizer()
+lemmatizer = WordNetLemmatizer()
 
 intents = json.loads(open('intents.json').read())
 
